@@ -1,0 +1,19 @@
+// scripts/calendar.js
+function generateCalendar() {
+    const calendar = document.getElementById('schedule-calendar');
+    const today = new Date();
+    
+    // 生成过去两周到未来三周的日期
+    for (let i = -14; i <= 21; i++) {
+        const date = new Date();
+        date.setDate(today.getDate() + i);
+        
+        const dayElement = document.createElement('div');
+        dayElement.className = 'calendar-day';
+        dayElement.innerHTML = `
+            <div class="date">${date.toLocaleDateString()}</div>
+            <div class="event">${i === 0 ? '日常训练' : ''}</div>
+        `;
+        calendar.appendChild(dayElement);
+    }
+}
