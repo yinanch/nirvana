@@ -1,28 +1,51 @@
-<!-- 在<head>中添加 -->
-<link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/fullcalendar/5.11.3/main.min.css">
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>赛训日历 - 雄鹰足球俱乐部</title>
+    <!-- FullCalendar 依赖 -->
+    <link href="https://cdn.bootcdn.net/ajax/libs/fullcalendar/5.11.3/main.min.css" rel="stylesheet">
+    <style>
+        /* 自定义日历样式 */
+        #calendar {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+        .fc-event {
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        .fc-event:hover {
+            transform: scale(1.05);
+        }
+        .fc-toolbar-title {
+            font-size: 1.5em;
+            color: #2c3e50;
+        }
+        @media (max-width: 768px) {
+            #calendar {
+                padding: 0 10px;
+            }
+            .fc-toolbar {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 (需与主站一致) -->
+    <nav>...</nav>
 
-<!-- 日历容器 -->
-<div id="schedule-calendar" class="container my-5"></div>
+    <!-- 日历容器 -->
+    <div id="calendar"></div>
 
-<script src="https://cdn.bootcdn.net/ajax/libs/fullcalendar/5.11.3/main.min.js"></script>
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  var calendarEl = document.getElementById('schedule-calendar');
-  var calendar = new FullCalendar.Calendar(calendarEl, {
-    initialView: 'dayGridMonth',
-    events: [
-      {
-        title: '战术训练',
-        start: '2023-11-15',
-        color: '#27ae60'
-      },
-      {
-        title: '友谊赛 vs 闪电队',
-        start: '2023-11-18',
-        color: '#e74c3c'
-      }
-    ]
-  });
-  calendar.render();
-});
-</script>
+    <!-- 依赖脚本 -->
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/fullcalendar/5.11.3/main.min.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/fullcalendar/5.11.3/locales/zh-cn.js"></script>
+    <script src="scripts/calendar.js"></script>
+</body>
+</html>
