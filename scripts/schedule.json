@@ -2,10 +2,12 @@
     "events": [
         {
             "title": "体能训练",
-            "start": "2025-2-20",
+            "start": "2023-11-28",
             "color": "#3498db",
-            "type": "training",
-            "link": "#"
+            "extendedProps": {
+                "type": "training",
+                "location": "市体育中心1号场"
+            }
         },
     ]
 }
