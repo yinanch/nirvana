@@ -2,24 +2,10 @@
     "events": [
         {
             "title": "体能训练",
-            "start": "2023-11-20",
+            "start": "2025-2-20",
             "color": "#3498db",
             "type": "training",
             "link": "#"
         },
-        {
-            "title": "友谊赛 vs 闪电队",
-            "start": "2023-11-25",
-            "color": "#e74c3c",
-            "type": "match",
-            "link": "/news.html#match-20231125"
-        },
-        {
-            "title": "战术研讨会",
-            "start": "2023-11-28T18:30:00",
-            "end": "2023-11-28T20:00:00",
-            "color": "#2ecc71",
-            "type": "meeting"
-        }
     ]
 }
