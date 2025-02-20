@@ -1,6 +1,6 @@
 // 赛训数据（直接嵌入）
 const events = [
-    { date: '2025-2-21', type: 'training', title: '体能训练' },
+    { date: '2025-02-21', type: 'training', title: '体能训练' },
 ];
 
 // 生成当前周及前后两周（共5周）
