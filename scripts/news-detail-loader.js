@@ -1,7 +1,7 @@
 // 获取URL中的锚点ID
 const targetId = window.location.hash.substring(1);
 
-fetch('../data/news.json')
+fetch('data/news.json')
     .then(response => response.json())
     .then(data => {
         const container = document.getElementById('newsContainer');
