@@ -1,27 +1,57 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
-<head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title></title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="1894.7">
-  <style type="text/css">
-    span.s1 {font-kerning: none}
-    span.s2 {font: 18.0px 'Songti SC'; font-kerning: none}
-  </style>
-</head>
-<body>
-<h2 style="margin: 0.0px 0.0px 14.9px 0.0px; font: 18.0px Times; color: #000000; -webkit-text-stroke: #000000"><span class="s1"><b>&lt;div class="member-category"&gt;</b></span></h2>
-<h2 style="margin: 0.0px 0.0px 14.9px 0.0px; font: 18.0px Times; color: #000000; -webkit-text-stroke: #000000"><span class="s1"><b><span class="Apple-converted-space">    </span>&lt;h2&gt;</b></span><span class="s2"><b>历任队长</b></span><span class="s1"><b>&lt;/h2&gt;</b></span></h2>
-<h2 style="margin: 0.0px 0.0px 14.9px 0.0px; font: 18.0px Times; color: #000000; -webkit-text-stroke: #000000"><span class="s1"><b><span class="Apple-converted-space">    </span>&lt;div class="row"&gt;</b></span></h2>
-<h2 style="margin: 0.0px 0.0px 14.9px 0.0px; font: 18.0px Times; color: #000000; -webkit-text-stroke: #000000"><span class="s1"><b><span class="Apple-converted-space">        </span>&lt;div class="col-md-4 member-card"&gt;</b></span></h2>
-<h2 style="margin: 0.0px 0.0px 14.9px 0.0px; font: 18.0px Times; color: #000000; -webkit-text-stroke: #000000"><span class="s1"><b><span class="Apple-converted-space">            </span>&lt;img src="images/captains/</b></span><span class="s2"><b>张三</b></span><span class="s1"><b>.jpg" class="member-photo"&gt;</b></span></h2>
-<h2 style="margin: 0.0px 0.0px 14.9px 0.0px; font: 18.0px Times; color: #000000; -webkit-text-stroke: #000000"><span class="s1"><b><span class="Apple-converted-space">            </span>&lt;h3&gt;</b></span><span class="s2"><b>张三（</b></span><span class="s1"><b>2010-2015</b></span><span class="s2"><b>）</b></span><span class="s1"><b>&lt;/h3&gt;</b></span></h2>
-<h2 style="margin: 0.0px 0.0px 14.9px 0.0px; font: 18.0px Times; color: #000000; -webkit-text-stroke: #000000"><span class="s1"><b><span class="Apple-converted-space">            </span>&lt;p&gt;</b></span><span class="s2"><b>俱乐部创始人，司职中场</b></span><span class="s1"><b>...&lt;/p&gt;</b></span></h2>
-<h2 style="margin: 0.0px 0.0px 14.9px 0.0px; font: 18.0px Times; color: #000000; -webkit-text-stroke: #000000"><span class="s1"><b><span class="Apple-converted-space">        </span>&lt;/div&gt;</b></span></h2>
-<h2 style="margin: 0.0px 0.0px 14.9px 0.0px; font: 18.0px Times; color: #000000; -webkit-text-stroke: #000000"><span class="s1"><b><span class="Apple-converted-space">        </span>&lt;!-- </b></span><span class="s2"><b>更多成员</b></span><span class="s1"><b> --&gt;</b></span></h2>
-<h2 style="margin: 0.0px 0.0px 14.9px 0.0px; font: 18.0px Times; color: #000000; -webkit-text-stroke: #000000"><span class="s1"><b><span class="Apple-converted-space">    </span>&lt;/div&gt;</b></span></h2>
-<h2 style="margin: 0.0px 0.0px 14.9px 0.0px; font: 18.0px Times; color: #000000; -webkit-text-stroke: #000000"><span class="s1"><b>&lt;/div&gt;</b></span></h2>
-</body>
-</html>
+// 赛训数据（直接嵌入）
+const events = [
+    { date: '2025-2-21', type: 'training', title: '体能训练' },
+];
+
+// 生成当前周及前后两周（共5周）
+function generateCalendar() {
+    const today = new Date();
+    const calendarBody = document.getElementById('calendarBody');
+    const monthHeader = document.getElementById('currentMonth');
+    
+    // 设置显示月份
+    monthHeader.textContent = today.toLocaleDateString('zh-CN', { 
+        year: 'numeric', 
+        month: 'long' 
+    }) + ' 赛训安排';
+
+    // 计算起始日期（当前周周一 - 2周）
+    const startDate = new Date(today);
+    startDate.setDate(today.getDate() - today.getDay() + 1 - 14); // 回到前两周的周一
+    
+    // 生成35天（5周）
+    let html = '';
+    for (let week = 0; week < 5; week++) {
+        html += '<tr>';
+        for (let day = 0; day < 7; day++) {
+            const currentDate = new Date(startDate);
+            currentDate.setDate(startDate.getDate() + (week * 7) + day);
+            
+            // 日期格式化
+            const dateStr = currentDate.toISOString().split('T')[0];
+            const isToday = dateStr === new Date().toISOString().split('T')[0];
+            
+            // 匹配当日事件
+            const dayEvents = events.filter(e => e.date === dateStr);
+            
+            html += `
+                <td class="calendar-day ${isToday ? 'today' : ''}">
+                    <div class="p-2">
+                        <small>${currentDate.getDate()}</small>
+                        <div class="event-markers mt-1">
+                            ${dayEvents.map(e => `
+                                <div class="event-dot ${e.type}" 
+                                     title="${e.title}"></div>
+                            `).join('')}
+                        </div>
+                    </div>
+                </td>
+            `;
+        }
+        html += '</tr>';
+    }
+    calendarBody.innerHTML = html;
+}
+
+// 页面加载时生成
+generateCalendar();

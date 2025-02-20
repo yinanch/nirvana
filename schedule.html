@@ -3,49 +3,78 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>赛训日历 - 雄鹰足球俱乐部</title>
-    <!-- FullCalendar 依赖 -->
-    <link href="https://cdn.bootcdn.net/ajax/libs/fullcalendar/5.11.3/main.min.css" rel="stylesheet">
+    <title>赛训日历 - 重温旧梦足球俱乐部</title>
+    <link href="https://cdn.bootcdn.net/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="styles/style.css" rel="stylesheet">
     <style>
-        /* 自定义日历样式 */
-        #calendar {
-            max-width: 1200px;
-            margin: 40px auto;
-            padding: 0 20px;
+        .calendar-table {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
         }
-        .fc-event {
-            cursor: pointer;
-            transition: transform 0.2s;
+        .calendar-day {
+            height: 100px;
+            position: relative;
+            border: 1px solid #dee2e6;
         }
-        .fc-event:hover {
-            transform: scale(1.05);
+        .today {
+            background-color: #e3f2fd !important;
         }
-        .fc-toolbar-title {
-            font-size: 1.5em;
-            color: #2c3e50;
+        .event-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            display: inline-block;
+            margin: 2px;
         }
-        @media (max-width: 768px) {
-            #calendar {
-                padding: 0 10px;
-            }
-            .fc-toolbar {
-                flex-direction: column;
-            }
-        }
+        .training { background: #2196F3; }
+        .match { background: #f44336; }
+        .meeting { background: #4CAF50; }
     </style>
 </head>
 <body>
-    <!-- 导航栏 (需与主站一致) -->
-    <nav>...</nav>
+    <!-- 导航栏（需与其他页面完全一致） -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="images/logo.jpg" alt="队徽" width="50">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">主页</a></li>
+                    <li class="nav-item"><a class="nav-link" href="members.html">球队成员</a></li>
+                    <li class="nav-item"><a class="nav-link" href="news.html">最新动态</a></li>
+                    <li class="nav-item"><a class="nav-link" href="schedule.html">赛训日历</a></li>
+                    <li class="nav-item"><a class="nav-link" href="season.html">赛季战绩</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
-    <!-- 日历容器 -->
-    <div id="calendar"></div>
+    <div class="container my-5">
+        <h3 class="mb-4" id="currentMonth"></h3>
+        <div class="table-responsive">
+            <table class="calendar-table table table-bordered">
+                <thead class="table-primary">
+                    <tr>
+                        <th style="width: 14%">周一</th>
+                        <th style="width: 14%">周二</th>
+                        <th style="width: 14%">周三</th>
+                        <th style="width: 14%">周四</th>
+                        <th style="width: 14%">周五</th>
+                        <th style="width: 14%">周六</th>
+                        <th style="width: 14%">周日</th>
+                    </tr>
+                </thead>
+                <tbody id="calendarBody"></tbody>
+            </table>
+        </div>
+    </div>
 
-    <!-- 依赖脚本 -->
-    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="https://cdn.bootcdn.net/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
-    <script src="https://cdn.bootcdn.net/ajax/libs/fullcalendar/5.11.3/main.min.js"></script>
-    <script src="https://cdn.bootcdn.net/ajax/libs/fullcalendar/5.11.3/locales/zh-cn.js"></script>
     <script src="scripts/calendar.js"></script>
 </body>
 </html>
