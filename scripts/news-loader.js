@@ -1,5 +1,5 @@
 // 加载最新3条新闻
-fetch('../data/news.json')
+fetch('data/news.json')
     .then(response => response.json())
     .then(data => {
         const articles = data.articles
