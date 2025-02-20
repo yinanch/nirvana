@@ -38,22 +38,14 @@
         </div>
     </header>
 
-    <!-- 最新动态摘要 -->
-    <section class="container py-5">
-        <h2 class="mb-4">📢 最新消息</h2>
-        <div class="row">
-            <div class="col-md-4">
-                <div class="card">
-                    <div class="card-body">
-                        <h5>友谊赛胜利</h5>
-                        <p>2023-10-15 3:2战胜闪电队...</p>
-                        <a href="news.html#20231015" class="btn btn-primary">查看详情</a>
-                    </div>
-                </div>
-            </div>
-            <!-- 更多新闻卡片 -->
-        </div>
+    <!-- 在主页合适位置添加 -->
+    <section class="container py-4">
+        <h2 class="text-center mb-4">📢 最新动态</h2>
+        <div class="row row-cols-1 row-cols-md-3 g-4" id="newsPreview"></div>
     </section>
+
+    <!-- 新闻加载脚本 -->
+    <script src="scripts/news-loader.js"></script>
     
     <script src="https://cdn.bootcdn.net/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
 </body>
