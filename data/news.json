@@ -1,13 +1,20 @@
 {
-    "events": [
+    "articles": [
         {
-            "title": "体能训练",
-            "start": "2025-2-20",
-            "color": "#3498db",
-            "extendedProps": {
-                "type": "training",
-                "location": "市体育中心1号场"
-            }
+            "id": "20231120",
+            "date": "2023-11-20",
+            "title": "友谊赛3-2战胜闪电队",
+            "summary": "在主场进行的友谊赛中，我们凭借王伟的绝杀进球...",
+            "content": "<p>在刚刚结束的友谊赛中，Nirvana FC以3-2战胜劲旅闪电队...</p><img src='images/news/20231120.jpg' class='img-fluid'>",
+            "wechat": "https://mp.weixin.qq.com/s/example1"
         },
+        {
+            "id": "20231118",
+            "date": "2023-11-18",
+            "title": "新球员签约仪式",
+            "summary": "俱乐部正式签下中场球员李强...",
+            "content": "<p>今天上午，俱乐部在训练基地举行了新球员签约仪式...</p>",
+            "wechat": "https://mp.weixin.qq.com/s/example2"
+        }
     ]
 }
