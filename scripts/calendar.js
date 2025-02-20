@@ -1,8 +1,6 @@
 // 赛训数据（直接嵌入）
 const events = [
-    { date: '2023-11-27', type: 'training', title: '体能训练' },
-    { date: '2023-12-02', type: 'match', title: '友谊赛 vs 闪电队' },
-    { date: '2023-12-05', type: 'meeting', title: '战术会议' }
+    { date: '2025-2-21', type: 'training', title: '体能训练' },
 ];
 
 // 生成当前周及前后两周（共5周）
