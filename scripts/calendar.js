@@ -1,57 +1,59 @@
-document.addEventListener('DOMContentLoaded', function() {
-    const calendarEl = document.getElementById('calendar');
-    
-    // 动态日期范围（过去两周+未来三周）
+// 赛训数据（直接嵌入）
+const events = [
+    { date: '2023-11-27', type: 'training', title: '体能训练' },
+    { date: '2023-12-02', type: 'match', title: '友谊赛 vs 闪电队' },
+    { date: '2023-12-05', type: 'meeting', title: '战术会议' }
+];
+
+// 生成当前周及前后两周（共5周）
+function generateCalendar() {
     const today = new Date();
-    const startDate = new Date();
-    startDate.setDate(today.getDate() - 14);
-    const endDate = new Date();
-    endDate.setDate(today.getDate() + 21);
+    const calendarBody = document.getElementById('calendarBody');
+    const monthHeader = document.getElementById('currentMonth');
+    
+    // 设置显示月份
+    monthHeader.textContent = today.toLocaleDateString('zh-CN', { 
+        year: 'numeric', 
+        month: 'long' 
+    }) + ' 赛训安排';
 
-    // 初始化日历
-    const calendar = new FullCalendar.Calendar(calendarEl, {
-        initialView: 'dayGridMonth',
-        locale: 'zh-cn',
-        firstDay: 1,
-        validRange: {
-            start: startDate,
-            end: endDate
-        },
-        headerToolbar: {
-            left: 'prev,next today',
-            center: 'title',
-            right: 'dayGridMonth,dayGridWeek'
-        },
-        events: '../data/schedule.json',
-        eventContent: function(arg) {
-            // 自定义事件内容
-            const typeBadge = document.createElement('span');
-            typeBadge.className = 'badge me-2';
-            typeBadge.style.backgroundColor = arg.event.backgroundColor;
-            typeBadge.textContent = arg.event.extendedProps.type;
+    // 计算起始日期（当前周周一 - 2周）
+    const startDate = new Date(today);
+    startDate.setDate(today.getDate() - today.getDay() + 1 - 14); // 回到前两周的周一
+    
+    // 生成35天（5周）
+    let html = '';
+    for (let week = 0; week < 5; week++) {
+        html += '<tr>';
+        for (let day = 0; day < 7; day++) {
+            const currentDate = new Date(startDate);
+            currentDate.setDate(startDate.getDate() + (week * 7) + day);
             
-            const title = document.createElement('span');
-            title.textContent = arg.event.title;
-
-            const domNodes = [typeBadge, title];
-            return { domNodes: domNodes };
-        },
-        datesSet: function(dateInfo) {
-            // 强制锁定日期范围
-            if (dateInfo.start < startDate || dateInfo.end > endDate) {
-                calendar.gotoDate(today);
-            }
-        },
-        eventClick: function(info) {
-            // 点击事件显示详情
-            const detail = `
-                类型：${info.event.extendedProps.type}
-                时间：${info.event.start.toLocaleString()}
-                地点：${info.event.extendedProps.location || '待通知'}
+            // 日期格式化
+            const dateStr = currentDate.toISOString().split('T')[0];
+            const isToday = dateStr === new Date().toISOString().split('T')[0];
+            
+            // 匹配当日事件
+            const dayEvents = events.filter(e => e.date === dateStr);
+            
+            html += `
+                <td class="calendar-day ${isToday ? 'today' : ''}">
+                    <div class="p-2">
+                        <small>${currentDate.getDate()}</small>
+                        <div class="event-markers mt-1">
+                            ${dayEvents.map(e => `
+                                <div class="event-dot ${e.type}" 
+                                     title="${e.title}"></div>
+                            `).join('')}
+                        </div>
+                    </div>
+                </td>
             `;
-            alert(detail);
         }
-    });
+        html += '</tr>';
+    }
+    calendarBody.innerHTML = html;
+}
 
-    calendar.render();
-});
+// 页面加载时生成
+generateCalendar();
