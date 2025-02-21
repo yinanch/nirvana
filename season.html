@@ -1,1 +1,144 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>赛季信息 - 重温旧梦足球俱乐部</title>
+    <link href="https://cdn.bootcdn.net/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="styles/style.css" rel="stylesheet">
+    <style>
+        .stats-table {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .table-title {
+            background: #2c3e50;
+            color: white;
+            padding: 12px;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏（需与其他页面完全一致） -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="images/logo.jpg" alt="队徽" width="50">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">主页</a></li>
+                    <li class="nav-item"><a class="nav-link" href="members.html">球队成员</a></li>
+                    <li class="nav-item"><a class="nav-link" href="news.html">最新动态</a></li>
+                    <li class="nav-item"><a class="nav-link" href="schedule.html">赛训日历</a></li>
+                    <li class="nav-item"><a class="nav-link" href="season.html">赛季战绩</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
+    <div class="container py-5">
+        <h2 class="text-center mb-4">🏆 2024-2025赛季数据</h2>
+
+        <!-- 射手榜 -->
+        <div class="row mb-4">
+            <div class="col-md-4">
+                <div class="stats-table">
+                    <h5 class="table-title">⚽ 射手榜</h5>
+                    <table class="table table-hover mb-0">
+                        <thead>
+                            <tr>
+                                <th>球员</th>
+                                <th>进球</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>洪瀚旸</td>
+                                <td>4</td>
+                            </tr>
+                            <tr>
+                                <td>商扬笛</td>
+                                <td>4</td>
+                            </tr>
+                            <tr>
+                                <td>陈冠宇</td>
+                                <td>2</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- 助攻榜 -->
+            <div class="col-md-4">
+                <div class="stats-table">
+                    <h5 class="table-title">🎯 助攻榜</h5>
+                    <table class="table table-hover mb-0">
+                        <thead>
+                            <tr>
+                                <th>球员</th>
+                                <th>助攻</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>洪瀚旸</td>
+                                <td>3</td>
+                            </tr>
+                            <tr>
+                                <td>陈冠宇</td>
+                                <td>3</td>
+                            </tr>
+                            <tr>
+                                <td>蒋宋楠</td>
+                                <td>1</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- 球队战绩 -->
+            <div class="col-md-4">
+                <div class="stats-table">
+                    <h5 class="table-title">📊 球队战绩</h5>
+                    <table class="table table-hover mb-0">
+                        <thead>
+                            <tr>
+                                <th colspan="2" class="text-center">
+                                    <img src="images/logo.jpg" alt="队徽" width="40">
+                                    重温旧梦足球俱乐部
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>胜场</td>
+                                <td>无数据</td>
+                            </tr>
+                            <tr>
+                                <td>平局</td>
+                                <td>无数据</td>
+                            </tr>
+                            <tr>
+                                <td>负场</td>
+                                <td>无数据</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.bootcdn.net/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

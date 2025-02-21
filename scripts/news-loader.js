@@ -20,7 +20,7 @@ fetch('data/news.json')
                         <div class="d-flex justify-content-between align-items-center">
                             <a href="news.html#${article.id}" class="btn btn-primary btn-sm">查看详情</a>
                             <a href="${article.wechat}" target="_blank" class="text-decoration-none">
-                                <img src="images/wechat-icon.png" width="20" alt="微信文章">
+                                <img src="images/wx.png" width="20" alt="微信文章">
                             </a>
                         </div>
                     </div>
