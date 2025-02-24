@@ -1,7 +1,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>球队成员——重温旧梦足球俱乐部</title>
+    <title>用户登录</title>
     <link href="https://cdn.bootcdn.net/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
     <link href="styles/style.css" rel="stylesheet">
 </head>
@@ -26,97 +26,48 @@
             </div>
         </div>
     </nav>
-<div class="member-category">
-    <h2>历任队长</h2>
-    <div class="row">
-        <div class="col-md-3 member-card">
-            <h3>李润金（2019-2025）</h3>
-            <img src="images/lrj.jpg" class="member-photo" width="300">
-            <p>俱乐部创始人。球场上哪里都有他</p>
-        </div>
-        <!-- 更多成员 -->
-        <div class="col-md-3 member-card">
-            <h3>贺晟（2022-2023）</h3>
-            <img src="images/hs.jpg" class="member-photo" width="300">
-            <p>第二任队长。场上司职后腰</p>
-        </div>
-        <div class="col-md-3 member-card">
-            <h3>陈亦南（2020-2025）</h3>
-            <img src="images/cyn.jpg" class="member-photo" width="300">
-            <p>第三任队长。场上司职后腰</p>
+    <div class="container mt-5" style="max-width: 400px;">
+        <div class="card shadow">
+            <div class="card-body">
+                <h4 class="card-title mb-4">俱乐部系统登录</h4>
+                <form id="loginForm">
+                    <div class="mb-3">
+                        <label class="form-label">用户名</label>
+                        <input type="text" class="form-control" name="username" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">密码</label>
+                        <input type="password" class="form-control" name="password" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100">登录</button>
+                </form>
+            </div>
         </div>
     </div>
 
-    <h2>现役球员</h2>
-    <div class="row">
-        <div class="col-md-3 member-card">
-                <h3>陈冠宇（2024-2025）</h3>
-                <img src="images/player/cgy.jpg" class="member-photo" width="300">
-                <p>自我介绍：中场大师，球队的节拍器，“新闻学高手”</p>
-        </div>
-        <div class="col-md-3 member-card">
-                <h3>储昕锐（2024-2025）</h3>
-                <img src="images/player/cxr.jpg" class="member-photo" width="300">
-                <p>这可是金手套门神呐！</p>
-        </div>
-        <div class="col-md-3 member-card">
-                <h3>丁浩伦（2022-2025）</h3>
-                <img src="images/player/dhl.jpg" class="member-photo" width="300">
-                <p>稳健的防守型边后卫</p>
-        </div>
-        <div class="col-md-3 member-card">
-                <h3>洪瀚旸（2024-2025）</h3>
-                <img src="images/player/hhy.jpg" class="member-photo" width="300">
-                <p>这是一只猴子（也是球队最好的前锋之一）</p>
-        </div>
-        <div class="col-md-3 member-card">
-                <h3>蒋宋楠（2024-2025）</h3>
-                <img src="images/player/jsn.jpg" class="member-photo" width="300">
-                <p>高冷神秘不愿露脸的金球级球员</p>
-        </div>
-        <div class="col-md-3 member-card">
-                <h3>李星瑞（2024-2025）</h3>
-                <img src="images/player/lxr.jpg" class="member-photo" width="300">
-                <p>芝士雪豹队长</p>
-        </div>
-        <div class="col-md-3 member-card">
-                <h3>史东博（2022-2025）</h3>
-                <img src="images/player/sdb.jpg" class="member-photo" width="300">
-                <p>后方有你，全队安心</p>
-        </div>
-        <div class="col-md-3 member-card">
-                <h3>沈乐炎（2023-2025）</h3>
-                <img src="images/player/sly.jpg" class="member-photo" width="300">
-                <p>人菜瘾大说的就是我（但是其实也是最好的前锋）</p>
-        </div>
-        <div class="col-md-3 member-card">
-                <h3>商扬笛（2023-2025）</h3>
-                <img src="images/player/syd.jpg" class="member-photo" width="300">
-                <p>懂不懂大中锋的含金量啊</p>
-        </div>
-        <div class="col-md-3 member-card">
-                <h3>田峻豪（2024-2025）</h3>
-                <img src="images/player/tjh.png" class="member-photo" width="300">
-                <p>颜值焦虑很重的前场万（搅）金（屎）油（棍）</p>
-        </div>
-        <div class="col-md-3 member-card">
-                <h3>王有晟（2024-2025）</h3>
-                <img src="images/player/wys.jpg" class="member-photo" width="300">
-                <p>攻防全能的中后场大将，重温旧梦有自己的鸡哥</p>
-        </div>
-        <div class="col-md-3 member-card">
-                <h3>许佳乐（2023-2025）</h3>
-                <img src="images/player/xjl.jpg" class="member-photo" width="300">
-                <p>左右兼修边后卫（指双逆足）</p>
-        </div>
-        <div class="col-md-3 member-card">
-                <h3>闫宇嘉（2024-2025）</h3>
-                <img src="images/player/yyj.jpg" class="member-photo" width="300">
-                <p>软弱无力小中锋</p>
-        </div>
-        <div class="col-md-3 member-card">
-                <h3>张满羿（2024-2025）</h3>
-                <img src="images/player/zmy.jpg" class="member-photo" width="300">
-                <p>一米九大中卫，害怕对抗，但是我有对象你有吗</p>
-        </div>
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const formData = {
+                username: e.target.username.value,
+                password: e.target.password.value
+            };
+
+            try {
+                const response = await fetch('/api/login', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(formData)
+                });
+                
+                const data = await response.json();
+                if (data.role) {
+                    window.location.href = `/${data.role.toLowerCase()}`; // 跳转到对应角色页
+                }
+            } catch (error) {
+                alert('登录失败，请重试');
+            }
+        });
+    </script>
 </div>
