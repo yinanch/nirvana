@@ -1,0 +1,74 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>用户登录</title>
+    <link href="https://cdn.bootcdn.net/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="styles/style.css" rel="stylesheet">
+</head>
+<body>
+<!-- 导航栏 (需与主站一致) -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="images/logo.jpg" alt="队徽" width="50">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">主页</a></li>
+                    <li class="nav-item"><a class="nav-link" href="members.html">球队成员</a></li>
+                    <li class="nav-item"><a class="nav-link" href="news.html">最新动态</a></li>
+                    <li class="nav-item"><a class="nav-link" href="schedule.html">赛训日历</a></li>
+                    <li class="nav-item"><a class="nav-link" href="season.html">赛季战绩</a></li>
+                    <li class="nav-item"><a class="nav-link" href="login.html">登录</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container mt-5" style="max-width: 400px;">
+        <div class="card shadow">
+            <div class="card-body">
+                <h4 class="card-title mb-4">俱乐部系统登录</h4>
+                <form id="loginForm">
+                    <div class="mb-3">
+                        <label class="form-label">用户名</label>
+                        <input type="text" class="form-control" name="username" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">密码</label>
+                        <input type="password" class="form-control" name="password" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100">登录</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const formData = {
+                username: e.target.username.value,
+                password: e.target.password.value
+            };
+
+            try {
+                const response = await fetch('/api/login', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(formData)
+                });
+                
+                const data = await response.json();
+                if (data.role) {
+                    window.location.href = `/${data.role.toLowerCase()}`; // 跳转到对应角色页
+                }
+            } catch (error) {
+                alert('登录失败，请重试');
+            }
+        });
+    </script>
+</div>
