@@ -46,29 +46,5 @@
         </div>
     </div>
 
-    <script>
-        document.getElementById('loginForm').addEventListener('submit', async (e) => {
-            e.preventDefault();
-            
-            const formData = {
-                username: e.target.username.value,
-                password: e.target.password.value
-            };
-
-            try {
-                const response = await fetch('/api/login', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(formData)
-                });
-                
-                const data = await response.json();
-                if (data.role) {
-                    window.location.href = `/${data.role.toLowerCase()}`; // 跳转到对应角色页
-                }
-            } catch (error) {
-                alert('登录失败，请重试');
-            }
-        });
-    </script>
+    <script src="scripts/auth.js"></script>
 </div>

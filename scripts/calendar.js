@@ -1,6 +1,7 @@
 // 赛训数据（直接嵌入）
 const events = [
     { date: '2025-02-23', type: 'match', title: 'Tikitaka对阵糖果超甜' },
+    { date: '2025-02-27', type: 'match', title: 'Supernova对阵树之' },
 ];
 
 // 生成当前周及前后两周（共5周）
